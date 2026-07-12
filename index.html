@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>កម្មវិធីកត់ត្រាសិស្សចុះឈ្មោះចូលរៀន</title>
-    <!-- ប្រើប្រាស់ Tailwind CSS សម្រាប់រចនារូបរាង -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- ប្រើប្រាស់ Font ខ្មែរ -->
     <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Moul&display=swap" rel="stylesheet">
     <style>
         body {
@@ -21,7 +19,6 @@
 <body class="p-4 md:p-8">
 
     <div class="max-w-6xl mx-auto">
-        <!-- ផ្នែកខាងលើ៖ ចំណងជើង -->
         <header class="text-center mb-8">
             <h1 class="text-2xl md:text-4xl text-blue-700 title-font mb-2">ប្រព័ន្ធគ្រប់គ្រងការចុះឈ្មោះសិស្ស</h1>
             <p class="text-gray-600">ងាយស្រួលកត់ត្រា និងរក្សាទុកទិន្នន័យសិស្ស</p>
@@ -29,7 +26,6 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             
-            <!-- ផ្នែកខាងឆ្វេង៖ ហ្វមបញ្ចូលទិន្នន័យ (Input & Validation) -->
             <div class="bg-white p-6 rounded-xl shadow-md h-fit">
                 <h2 id="formTitle" class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">បញ្ចូលព័ត៌មានសិស្សថ្មី</h2>
                 
@@ -53,11 +49,9 @@
                         </div>
                     </div>
 
-                    <!-- ផ្នែកជ្រើសរើសមុខវិជ្ជា និងតម្លៃ (អាចរើសច្រើនមុខបញ្ចូលគ្នា) -->
                     <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 shadow-inner">
                         <label class="block text-sm font-bold text-gray-800 mb-2">ថ្នាក់រៀន / វគ្គ និងតម្លៃ <span class="text-red-500">*</span></label>
                         <div class="flex flex-col gap-2 mb-4" id="subjectContainer">
-                            <!-- គណិតវិទ្យា -->
                             <div class="flex items-center justify-between bg-white p-2 rounded border hover:border-blue-400 transition">
                                 <label class="flex items-center gap-3 cursor-pointer flex-1">
                                     <input type="checkbox" name="subject" value="គណិតវិទ្យា" class="subject-checkbox w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
@@ -68,7 +62,6 @@
                                     <input type="number" step="any" class="subject-price w-24 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed" placeholder="តម្លៃ" disabled>
                                 </div>
                             </div>
-                            <!-- គីមីវិទ្យា -->
                             <div class="flex items-center justify-between bg-white p-2 rounded border hover:border-blue-400 transition">
                                 <label class="flex items-center gap-3 cursor-pointer flex-1">
                                     <input type="checkbox" name="subject" value="គីមីវិទ្យា" class="subject-checkbox w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
@@ -79,7 +72,6 @@
                                     <input type="number" step="any" class="subject-price w-24 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed" placeholder="តម្លៃ" disabled>
                                 </div>
                             </div>
-                            <!-- ជីវៈវិទ្យា -->
                             <div class="flex items-center justify-between bg-white p-2 rounded border hover:border-blue-400 transition">
                                 <label class="flex items-center gap-3 cursor-pointer flex-1">
                                     <input type="checkbox" name="subject" value="ជីវៈវិទ្យា" class="subject-checkbox w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
@@ -110,22 +102,22 @@
                 </form>
             </div>
 
-            <!-- ផ្នែកខាងស្តាំ៖ តារាងទិន្នន័យ (Recording & Output) -->
             <div class="bg-white p-6 rounded-xl shadow-md lg:col-span-2">
-                <div class="flex justify-between items-center mb-4 border-b pb-2">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 border-b pb-3 gap-3">
                     <h2 class="text-xl font-bold text-gray-800">បញ្ជីឈ្មោះសិស្សបានចុះឈ្មោះ</h2>
-                    <div class="flex gap-2 flex-wrap justify-end">
+                    <div class="flex gap-2 flex-wrap items-center">
                         <span class="bg-green-100 text-green-800 text-sm font-bold px-3 py-1 rounded-full">ចំណូលសរុប៖ $<span id="totalRevenue">0</span></span>
                         <span class="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">សរុប៖ <span id="totalStudents">0</span> នាក់</span>
+                        <button onclick="deleteAllData()" class="bg-red-500 hover:bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow transition flex items-center gap-1 ml-1" title="លុបទិន្នន័យទាំងអស់">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            សម្អាតទាំងអស់
+                        </button>
                     </div>
                 </div>
                 
-                <!-- កន្លែងបង្ហាញតារាងដែលបែងចែកតាមថ្នាក់ -->
                 <div id="tablesContainer" class="space-y-6">
-                    <!-- តារាងនីមួយៗនឹងបង្ហាញនៅទីនេះតាមរយៈ JavaScript -->
-                </div>
+                    </div>
                 
-                <!-- ស្ថានភាពពេលគ្មានទិន្នន័យ -->
                 <div id="emptyState" class="text-center py-10 text-gray-500">
                     <svg class="mx-auto h-12 w-12 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
@@ -136,14 +128,12 @@
 
         </div>
 
-        <!-- ផ្នែកខាងក្រោម៖ ឈ្មោះអ្នករៀបចំ -->
         <footer class="text-center mt-10 mb-4 text-gray-500 text-sm border-t pt-4">
             <p>រៀបចំដោយ៖ <span class="font-bold text-blue-700 text-base">វ៉ាន សុទ្ធាវ័ន្ត</span></p>
         </footer>
 
     </div>
 
-    <!-- JavaScript សម្រាប់ដំណើរការ Logic កម្មវិធី -->
     <script>
         // អថេរសម្រាប់កំណត់ថាតើកំពុងស្ថិតក្នុងទម្រង់កែសម្រួលឬអត់
         let editingIndex = -1;
@@ -312,11 +302,9 @@
                             <td class="p-3 text-gray-500">${formattedDate}</td>
                             <td class="p-3 text-center">
                                 <div class="flex justify-center gap-1">
-                                    <!-- ប៊ូតុងកែសម្រួល -->
                                     <button onclick="editStudent(${student.originalIndex})" class="text-blue-500 hover:text-blue-700 hover:bg-blue-50 p-1.5 rounded transition" title="កែសម្រួលទិន្នន័យ">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                                     </button>
-                                    <!-- ប៊ូតុងលុប -->
                                     <button onclick="deleteStudent(${student.originalIndex})" class="text-red-500 hover:text-red-700 hover:bg-red-50 p-1.5 rounded transition" title="លុបទិន្នន័យ">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                     </button>
@@ -467,7 +455,7 @@
             renderTable();
         });
 
-        // មុខងារសម្រាប់លុបទិន្នន័យ
+        // មុខងារសម្រាប់លុបទិន្នន័យសិស្សម្នាក់
         function deleteStudent(index) {
             if(confirm("តើអ្នកពិតជាចង់លុបទិន្នន័យសិស្សនេះមែនទេ?")) {
                 students.splice(index, 1);
@@ -476,6 +464,27 @@
                 if (editingIndex === index) {
                     cancelEdit();
                 }
+                renderTable();
+            }
+        }
+
+        // មុខងារថ្មីសម្រាប់លុបទិន្នន័យទាំងអស់
+        function deleteAllData() {
+            if (students.length === 0) {
+                alert("មិនទាន់មានទិន្នន័យសម្រាប់លុបទេ!");
+                return;
+            }
+            
+            if (confirm("តើអ្នកពិតជាចង់លុបទិន្នន័យសិស្សទាំងអស់មែនទេ?\nការលុបនេះនឹងសម្អាតទិន្នន័យទាំងអស់ ហើយមិនអាចទាញយកមកវិញបានឡើយ!")) {
+                // សម្អាត Array
+                students = [];
+                // សម្អាត Local Storage
+                localStorage.removeItem('registeredStudents');
+                
+                // បិទការកែសម្រួលបើសិនកំពុងបើក
+                cancelEdit();
+                
+                // Update តារាង
                 renderTable();
             }
         }
